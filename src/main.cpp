@@ -20,31 +20,34 @@ void handleInput(Player& player, const sf::Event& event) {
 			player.movingRight = false;
 		}
 	}
+}
 
+void handleEvent(const sf::Event& event, sf::RenderWindow& window, Player& player) {
+	if (event.type == sf::Event::Closed) {
+		window.close();
+	} else if (event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased) {
+		handleInput(player, event);
+	}	
 }
 
 int main() {
+	
 	auto window = sf::RenderWindow{ sf::VideoMode(GameConstants::SCREEN_WIDTH, GameConstants::SCREEN_HEIGHT), "Space Invaders" };
 	window.setFramerateLimit(120);
+
 	sf::Texture spriteSheet;
-	
 	if(!spriteSheet.loadFromFile("/Users/sreekommalapati/Projects/SpaceInvaders/assets/SpriteSheet.png")) {
 		window.close();
+		std::cerr << "Could not load sprite sheet asset." << std::endl;
 		return EXIT_FAILURE;
 	}
 	Player player = Player(spriteSheet);
 
 	while (window.isOpen()) {
 		
-
 		sf::Event event;
 		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				window.close();
-			} else if (event.type == sf::Event::KeyPressed || event.type == sf::Event::KeyReleased) {
-				handleInput(player, event);
-			}
-
+			handleEvent(event, window, player);
 		}
 		
 		player.move();
