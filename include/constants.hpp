@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 
 namespace GameConstants {
@@ -8,6 +9,11 @@ namespace GameConstants {
 
 	extern const float WALL_LEFT;
 	extern const float WALL_RIGHT;
+
+	extern const float WALL_TOP;
+	extern const float WALL_BOTTOM;
+
+	extern sf::Texture& getSpriteSheet();
 
 	extern const sf::IntRect PLAYER_FRAMES[];
 	extern const sf::IntRect PLAYER_PROJECTILE_FRAMES[];

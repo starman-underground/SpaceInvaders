@@ -1,11 +1,28 @@
+#include <stdexcept>
+
 #include "constants.hpp"
 
 namespace GameConstants {
 	constexpr unsigned int SCREEN_WIDTH = 1024u;
 	constexpr unsigned int SCREEN_HEIGHT = 896u;
+
 	constexpr float WALL_LEFT = 5.0f;
 	constexpr float WALL_RIGHT = 1019.0f;
-	
+	constexpr float WALL_TOP = 5.0f;
+	constexpr float WALL_BOTTOM = 891.0f;
+
+
+	sf::Texture& getSpriteSheet() {
+		static sf::Texture spriteSheet;
+		static bool loaded = false;
+		if (!loaded) {
+			if(!spriteSheet.loadFromFile("/Users/sreekommalapati/Projects/SpaceInvaders/assets/SpriteSheet.png")) {
+				throw std::runtime_error("Could not load sprite sheet");
+			}
+		}
+		return spriteSheet;
+	};
+
 	const sf::IntRect PLAYER_FRAMES[] { sf::IntRect(1, 49, 16, 8) };
 	const sf::IntRect PLAYER_PROJECTILE_FRAMES[] { sf::IntRect(55, 49, 1, 8) };
 	

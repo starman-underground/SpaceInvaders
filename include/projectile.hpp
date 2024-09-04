@@ -1,14 +1,25 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
+
+enum class ProjectileType {
+	Player,
+	Enemy1,
+	Enemy2,
+	Enemy3
+};
 
 class Projectile {
 	public:
-		Projectile(sf::Texture& spriteSheet);
+		Projectile(ProjectileType type, const sf::FloatRect& startPos, float speed);
 		void move();
-		sf::IntRect getCollisionBox();
+		void draw(sf::RenderTarget& window) const;
+		sf::FloatRect getCollisionBox() const;
 	private:
 		sf::Sprite sprite;
 		unsigned int numFrames;
-		sf::IntRect frame_locations[numFrames];
-		bool fromPlayer;
+		unsigned int frameIdx;
+		float speed;
+		ProjectileType type;
 };
+
