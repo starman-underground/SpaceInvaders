@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
-#include "projectile.hpp"
-#include "constants.hpp"
+#include "Projectile.hpp"
+#include "Constants.hpp"
 
 Projectile::Projectile(ProjectileType type, const sf::FloatRect& playerPos, float speed) : speed{speed}, type{type} {
 	switch(type) {

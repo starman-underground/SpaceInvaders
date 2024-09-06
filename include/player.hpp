@@ -2,8 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <optional>
 
-#include "projectile.hpp"
+#include "Projectile.hpp"
 
 enum class PlayerState {
 	Alive,
@@ -28,5 +29,5 @@ class Player {
 		static constexpr float PROJECTILE_SPEED = 6.0f;
 		float deadTime = 0.0f;
 		PlayerState state = PlayerState::Alive;
-		std::vector<Projectile> projectiles;	
+		std::optional<Projectile> projectile;	
 };

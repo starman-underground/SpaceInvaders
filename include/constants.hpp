@@ -29,4 +29,7 @@ namespace GameConstants {
 
 	extern const sf::IntRect ENEMY4_FRAMES[];
 	extern const sf::IntRect ENEMY4_PROJECTILE_FRAMES[];
+
+	extern const sf::Color PLAYER_COLOR;
+	extern const sf::Color BONUS_ENEMY_COLOR;
 }

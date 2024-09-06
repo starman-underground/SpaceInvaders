@@ -1,15 +1,17 @@
 #include <iostream>
 #include <vector>
+#include <optional>
 
-#include "player.hpp"
-#include "projectile.hpp"
-#include "constants.hpp"
+#include "Player.hpp"
+#include "Projectile.hpp"
+#include "Constants.hpp"
 
 Player::Player() {
 	sprite.setTexture(GameConstants::getSpriteSheet());
 	sprite.setTextureRect(GameConstants::PLAYER_FRAMES[0]);
 	sprite.setScale(4.0f, 4.0f);
-
+	sprite.setColor(GameConstants::PLAYER_COLOR);
+	
 	float posX = (static_cast<float>(GameConstants::SCREEN_WIDTH) - sprite.getGlobalBounds().width) / 2.0;
 	float posY = static_cast<float>(GameConstants::SCREEN_HEIGHT) - sprite.getGlobalBounds().height - 20.0f;
 	sprite.setPosition(posX, posY);
@@ -22,10 +24,8 @@ void Player::draw(sf::RenderTarget& window) {
 		// TODO: Death logic
 	}
 	window.draw(sprite);
-	int i = 1;
-	for (const Projectile& projectile : projectiles) {
-		projectile.draw(window);
-		i += 1;
+	if (projectile) {
+		projectile->draw(window);
 	}
 }
 
@@ -35,20 +35,17 @@ void Player::update() {
 	} else if (!movingLeft && movingRight && sprite.getPosition().x + sprite.getGlobalBounds().width < GameConstants::WALL_RIGHT) {
 		sprite.move(1.0 * Player::SPEED, 0.0);
 	}
-
-	for (auto projectile = projectiles.begin(); projectile != projectiles.end(); ) {
+	if (projectile) {
 		projectile->move();
 		sf::FloatRect projectileBounds = projectile->getCollisionBox();
-		if (projectileBounds.top < GameConstants::WALL_TOP) {
-			projectile = projectiles.erase(projectile);
-		} else if (projectileBounds.top + projectileBounds.height > GameConstants::WALL_BOTTOM) {
-			projectile = projectiles.erase(projectile);
-		} else {
-			projectile++;
+		if (projectileBounds.top < GameConstants::WALL_TOP || projectileBounds.top + projectileBounds.height > GameConstants::WALL_BOTTOM) {
+			projectile = std::nullopt;
 		}
 	}
 }
 
 void Player::shoot() {
-	projectiles.emplace_back(ProjectileType::Player, sprite.getGlobalBounds(), PROJECTILE_SPEED); 
+	if (!projectile) {
+		projectile = Projectile(ProjectileType::Player, sprite.getGlobalBounds(), PROJECTILE_SPEED);
+	}
 }
