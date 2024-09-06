@@ -15,6 +15,9 @@ namespace GameConstants {
 
 	extern sf::Texture& getSpriteSheet();
 
+	extern const sf::Color PLAYER_COLOR;
+	extern const sf::Color BONUS_ENEMY_COLOR;
+
 	extern const sf::IntRect PLAYER_FRAMES[];
 	extern const sf::IntRect PLAYER_PROJECTILE_FRAMES[];
 	
@@ -30,6 +33,14 @@ namespace GameConstants {
 	extern const sf::IntRect ENEMY4_FRAMES[];
 	extern const sf::IntRect ENEMY4_PROJECTILE_FRAMES[];
 
-	extern const sf::Color PLAYER_COLOR;
-	extern const sf::Color BONUS_ENEMY_COLOR;
+	extern const sf::IntRect S;
+	extern const sf::IntRect C;
+	extern const sf::IntRect O;
+	extern const sf::IntRect R;
+	extern const sf::IntRect E;
+
+	extern const sf::IntRect L;
+	extern const sf::IntRect I;
+	extern const sf::IntRect V;
+	extern const sf::IntRect E;
 }

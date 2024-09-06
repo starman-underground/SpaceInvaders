@@ -23,8 +23,10 @@ namespace GameConstants {
 		return spriteSheet;
 	};
 
-	const sf::IntRect PLAYER_FRAMES[] { sf::IntRect(1, 49, 16, 8) };
+	const sf::Color PLAYER_COLOR = sf::Color(117, 251, 76);
+	const sf::Color BONUS_ENEMY_COLOR = sf::Color(234, 51, 35);
 
+	const sf::IntRect PLAYER_FRAMES[] { sf::IntRect(1, 49, 16, 8) };
 	const sf::IntRect PLAYER_PROJECTILE_FRAMES[] { sf::IntRect(55, 49, 1, 8) };
 
 	const sf::IntRect ENEMY1_FRAMES[] { sf::IntRect(1, 1, 16, 8), sf::IntRect(1, 11, 16, 8) };
@@ -36,7 +38,6 @@ namespace GameConstants {
 	const sf::IntRect ENEMY3_FRAMES[] { sf::IntRect(37, 1, 16, 8), sf::IntRect(37, 11, 16, 8) };
 	const sf::IntRect ENEMY3_PROJECTILE_FRAMES[] { sf::IntRect(41, 21, 3, 8), sf::IntRect(46, 21, 3, 8), sf::IntRect(51, 21, 3, 8), sf::IntRect(56, 21, 3, 8), };
 
-	const sf::Color PLAYER_COLOR = sf::Color(117, 251, 76);
-	const sf::Color BONUS_ENEMY_COLOR = sf::Color(234, 51, 35);
+	const sf::IntRect S { 21, 89, 8, 8 }
 }
 
