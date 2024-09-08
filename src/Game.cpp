@@ -148,7 +148,7 @@ void Game::update() {
 		player.state = PlayerState::Alive;
 		player.deathAnimationAccumulator = 0;
 	}
-	if (lives <= 0) {
+	if (state != GameState::Dying && lives <= 0) {
 		state = GameState::Finished;
 	}
 	switch(state) {

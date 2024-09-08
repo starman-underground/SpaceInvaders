@@ -42,9 +42,9 @@ namespace GameConstants {
 	const sf::IntRect ENEMY3_PROJECTILE_FRAMES[] { sf::IntRect(41, 21, 3, 8), sf::IntRect(46, 21, 3, 8), sf::IntRect(51, 21, 3, 8), sf::IntRect(56, 21, 3, 8), };
 
 	const unsigned int FRAMES_PER_PROJECTILE_ANIMATION = 15;
-	const unsigned int FRAMES_PER_DEATH_ANIMATION = 15;
+	const unsigned int FRAMES_PER_DEATH_ANIMATION = 5;
 
-	const unsigned int NUM_DEATH_FRAMES = 120;
+	const unsigned int NUM_DEATH_FRAMES = 90;
 
 	const sf::IntRect S { 21, 89, 8, 8 };
 	const sf::IntRect C { 21, 69, 8, 8 };
