@@ -158,7 +158,6 @@ void Game::update() {
 			enemyManager.update();
 			break;
 		case GameState::Dying:
-			// TODO: Implement dying animation.
 			deathFrameAccumulator++;
 			break;
 	};

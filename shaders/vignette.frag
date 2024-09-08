@@ -5,7 +5,6 @@ void main() {
     vec2 uv = gl_FragCoord.xy / resolution.xy;
     vec2 center = vec2(0.5, 0.5);
     
-    // Adjust for aspect ratio
     vec2 aspectRatio = vec2(resolution.x / resolution.y, 1.0);
     vec2 adjustedUV = (uv - center) * aspectRatio + center;
     

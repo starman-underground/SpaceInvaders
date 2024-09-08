@@ -21,7 +21,6 @@ void Player::draw(sf::RenderTarget& window) {
 	if (state == PlayerState::Alive) {
 		sprite.setTextureRect(GameConstants::PLAYER_FRAMES[0]);
 	} else if (state == PlayerState::Dead) {
-		// TODO: Death Animation
 		if ((deathAnimationAccumulator / GameConstants::FRAMES_PER_DEATH_ANIMATION) % 2 == 0) {
 			sprite.setTextureRect(GameConstants::PLAYER_DEATH_FRAMES[0]);
 		} else {
