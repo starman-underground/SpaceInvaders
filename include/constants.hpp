@@ -18,7 +18,7 @@ namespace GameConstants {
 	extern sf::Texture& getSpriteSheet();
 
 	extern const sf::Color PLAYER_COLOR;
-	extern const sf::Color BONUS_ENEMY_COLOR;
+	extern const sf::Color ENEMY_COLOR;
 
 	extern const sf::IntRect PLAYER_FRAMES[];
 	extern const sf::IntRect PLAYER_DEATH_FRAMES[];
@@ -39,16 +39,34 @@ namespace GameConstants {
 	extern const unsigned int FRAMES_PER_PROJECTILE_ANIMATION;
 	extern const unsigned int FRAMES_PER_DEATH_ANIMATION;
 	extern const unsigned int NUM_DEATH_FRAMES;
-
-	extern const sf::IntRect S;
+	
+	extern const sf::IntRect A;
+	extern const sf::IntRect B;
 	extern const sf::IntRect C;
-	extern const sf::IntRect O;
-	extern const sf::IntRect R;
+	extern const sf::IntRect D;
 	extern const sf::IntRect E;
-
-	extern const sf::IntRect L;
+	extern const sf::IntRect F;
+	extern const sf::IntRect G;
+	extern const sf::IntRect H;
 	extern const sf::IntRect I;
+	extern const sf::IntRect J;
+	extern const sf::IntRect K;
+	extern const sf::IntRect L;
+	extern const sf::IntRect M;
+	extern const sf::IntRect N;
+	extern const sf::IntRect O;
+	extern const sf::IntRect P;
+	extern const sf::IntRect Q;
+	extern const sf::IntRect R;
+	extern const sf::IntRect S;
+	extern const sf::IntRect T;
+	extern const sf::IntRect U;
 	extern const sf::IntRect V;
+	extern const sf::IntRect W;
+	extern const sf::IntRect X;
+	extern const sf::IntRect Y;
+	extern const sf::IntRect Z;
+
 
 	extern const sf::IntRect ZERO;
 	extern const sf::IntRect ONE;

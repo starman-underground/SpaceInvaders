@@ -26,7 +26,7 @@ namespace GameConstants {
 	};
 
 	const sf::Color PLAYER_COLOR = sf::Color(117, 251, 76);
-	const sf::Color BONUS_ENEMY_COLOR = sf::Color(234, 51, 35);
+	const sf::Color ENEMY_COLOR = sf::Color(234, 51, 35);
 
 	const sf::IntRect PLAYER_FRAMES[] { sf::IntRect(1, 49, 16, 8) };
 	const sf::IntRect PLAYER_DEATH_FRAMES[] { sf::IntRect(19, 49, 16, 8), sf::IntRect(37, 49, 16, 8) };
@@ -45,16 +45,33 @@ namespace GameConstants {
 	const unsigned int FRAMES_PER_DEATH_ANIMATION = 5;
 
 	const unsigned int NUM_DEATH_FRAMES = 90;
-
-	const sf::IntRect S { 21, 89, 8, 8 };
+	
+	const sf::IntRect A { 1, 69, 8, 8 };
+	const sf::IntRect B { 11, 69, 8, 8 };
 	const sf::IntRect C { 21, 69, 8, 8 };
-	const sf::IntRect O { 61, 79, 8, 8 };
-	const sf::IntRect R { 11, 89, 8, 8 };
+	const sf::IntRect D { 31, 69, 8, 8 };
 	const sf::IntRect E { 41, 69, 8, 8 };
-
-	const sf::IntRect L { 31, 79, 8, 8 };
+	const sf::IntRect F { 51, 69, 8, 8 };
+	const sf::IntRect G { 61, 69, 8, 8 };
+	const sf::IntRect H { 71, 69, 8, 8 };
 	const sf::IntRect I { 1, 79, 8, 8 };
+	const sf::IntRect J { 11, 79, 8, 8 };
+	const sf::IntRect K { 21, 79, 8, 8 };
+	const sf::IntRect L { 31, 79, 8, 8 };
+	const sf::IntRect M { 41, 79, 8, 8 };
+	const sf::IntRect N { 51, 79, 8, 8 };
+	const sf::IntRect O { 61, 79, 8, 8 };
+	const sf::IntRect P { 71, 79, 8, 8 };
+	const sf::IntRect Q { 1, 89, 8, 8 };
+	const sf::IntRect R { 11, 89, 8, 8 };
+	const sf::IntRect S { 21, 89, 8, 8 };
+	const sf::IntRect T { 31, 89, 8, 8 };
+	const sf::IntRect U { 41, 89, 8, 8 };
 	const sf::IntRect V { 51, 89, 8, 8 };
+	const sf::IntRect W { 61, 89, 8, 8 };
+	const sf::IntRect X { 71, 89, 8, 8 };
+	const sf::IntRect Y { 1, 99, 8, 8 };
+	const sf::IntRect Z { 11, 99, 8, 8 };
 
 	const sf::IntRect ZERO { 21, 99, 8, 8 };
 	const sf::IntRect ONE { 31, 99, 8, 8 };

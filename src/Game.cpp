@@ -258,7 +258,10 @@ void Game::drawLives() {
 
 	s.setColor(GameConstants::PLAYER_COLOR);
 	s.setTextureRect(GameConstants::PLAYER_FRAMES[0]);
-	for (int i = 0; i < lives; i++) {
+	for (int i = 0; i < 3; i++) {
+		if (i == lives) {
+			s.setColor(GameConstants::ENEMY_COLOR);			
+		}
 		s.move(80.0f, 0.0f);
 		window.draw(s);
 	}
@@ -269,12 +272,24 @@ void Game::drawGameOver() {
 	s.setTexture(GameConstants::getSpriteSheet());
 	s.setScale(GameConstants::RATIO * 2.0f, GameConstants::RATIO * 2.0f);
 
-	s.setPosition(window.getSize().x / 2.0f - 240.0f, window.getSize().y / 3.0f);
-	s.setTextureRect(GameConstants::L);
+	s.setPosition(window.getSize().x / 2.0f - 360.0f, window.getSize().y / 3.0f);
+	s.setTextureRect(GameConstants::G);
 	window.draw(s);
 	
 	s.move(80.0f, 0.0f);
-	s.setTextureRect(GameConstants::I);
+	s.setTextureRect(GameConstants::A);
+	window.draw(s);
+
+	s.move(80.0f, 0.0f);
+	s.setTextureRect(GameConstants::M);
+	window.draw(s);
+
+	s.move(80.0f, 0.0f);
+	s.setTextureRect(GameConstants::E);
+	window.draw(s);
+
+	s.move(160.0f, 0.0f);
+	s.setTextureRect(GameConstants::O);
 	window.draw(s);
 
 	s.move(80.0f, 0.0f);
@@ -286,7 +301,7 @@ void Game::drawGameOver() {
 	window.draw(s);
 
 	s.move(80.0f, 0.0f);
-	s.setTextureRect(GameConstants::S);
+	s.setTextureRect(GameConstants::R);
 	window.draw(s);
 
 }
