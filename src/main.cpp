@@ -5,9 +5,6 @@
 #include <thread>
 
 #include "Game.hpp"
-		
-
-
 
 int main() {
 

@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
+
 enum class ProjectileType {
 	Player,
 	Enemy1,
@@ -11,15 +12,21 @@ enum class ProjectileType {
 
 class Projectile {
 	public:
-		Projectile(ProjectileType type, const sf::FloatRect& startPos, float speed);
+		Projectile(ProjectileType type, const sf::FloatRect& startPos);
+
+		void update();
 		void move();
 		void draw(sf::RenderTarget& window) const;
+		bool outOfBounds() const;
 		sf::FloatRect getCollisionBox() const;
+
 	private:
+		void updateSprite();
+	
 		sf::Sprite sprite;
 		unsigned int numFrames;
 		unsigned int frameIdx;
-		float speed;
+		static constexpr float SPEED = 6.0f;
 		ProjectileType type;
 };
 

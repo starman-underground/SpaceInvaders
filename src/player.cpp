@@ -9,11 +9,11 @@
 Player::Player() {
 	sprite.setTexture(GameConstants::getSpriteSheet());
 	sprite.setTextureRect(GameConstants::PLAYER_FRAMES[0]);
-	sprite.setScale(4.0f, 4.0f);
+	sprite.setScale(GameConstants::RATIO, GameConstants::RATIO);
 	sprite.setColor(GameConstants::PLAYER_COLOR);
 	
 	float posX = (static_cast<float>(GameConstants::SCREEN_WIDTH) - sprite.getGlobalBounds().width) / 2.0;
-	float posY = static_cast<float>(GameConstants::SCREEN_HEIGHT) - sprite.getGlobalBounds().height - 20.0f;
+	float posY = static_cast<float>(GameConstants::SCREEN_HEIGHT) - sprite.getGlobalBounds().height - 25.0f;
 	sprite.setPosition(posX, posY);
 }
 
@@ -21,12 +21,15 @@ void Player::draw(sf::RenderTarget& window) {
 	if (state == PlayerState::Alive) {
 		sprite.setTextureRect(GameConstants::PLAYER_FRAMES[0]);
 	} else if (state == PlayerState::Dead) {
-		// TODO: Death logic
+		// TODO: Death Animation
+		if ((deathAnimationAccumulator / GameConstants::FRAMES_PER_DEATH_ANIMATION) % 2 == 0) {
+			sprite.setTextureRect(GameConstants::PLAYER_DEATH_FRAMES[0]);
+		} else {
+			sprite.setTextureRect(GameConstants::PLAYER_DEATH_FRAMES[1]);
+		}
+		deathAnimationAccumulator += 1;
 	}
 	window.draw(sprite);
-	if (projectile) {
-		projectile->draw(window);
-	}
 }
 
 void Player::update() {
@@ -35,17 +38,13 @@ void Player::update() {
 	} else if (!movingLeft && movingRight && sprite.getPosition().x + sprite.getGlobalBounds().width < GameConstants::WALL_RIGHT) {
 		sprite.move(1.0 * Player::SPEED, 0.0);
 	}
-	if (projectile) {
-		projectile->move();
-		sf::FloatRect projectileBounds = projectile->getCollisionBox();
-		if (projectileBounds.top < GameConstants::WALL_TOP || projectileBounds.top + projectileBounds.height > GameConstants::WALL_BOTTOM) {
-			projectile = std::nullopt;
-		}
-	}
 }
 
-void Player::shoot() {
-	if (!projectile) {
-		projectile = Projectile(ProjectileType::Player, sprite.getGlobalBounds(), PROJECTILE_SPEED);
-	}
+Projectile Player::shoot() {
+	return Projectile(ProjectileType::Player, sprite.getGlobalBounds());
+}
+
+
+const sf::FloatRect Player::getCollisionBox() const {
+	return sprite.getGlobalBounds();
 }

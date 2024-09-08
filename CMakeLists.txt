@@ -12,6 +12,16 @@ FetchContent_Declare(SFML
 	GIT_SHALLOW ON)
 FetchContent_MakeAvailable(SFML)
 
+add_custom_target(copy_resources ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${PROJECT_SOURCE_DIR}/assets
+    ${PROJECT_BINARY_DIR}/bin/assets
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${PROJECT_SOURCE_DIR}/shaders
+    ${PROJECT_BINARY_DIR}/bin/shaders
+    COMMENT "Copying resources into binary directory"
+)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 add_executable(${PROJECT_NAME} ${SOURCES})

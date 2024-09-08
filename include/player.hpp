@@ -1,8 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include <optional>
 
 #include "Projectile.hpp"
 
@@ -21,13 +19,12 @@ class Player {
 		Player();
 		void draw(sf::RenderTarget& window);
 		void update();
-		void shoot();
-		
+		Projectile shoot();
+		const sf::FloatRect getCollisionBox() const;
+		PlayerState state = PlayerState::Alive;
+		unsigned int deathAnimationAccumulator = 0;
 	private:
 		sf::Sprite sprite;
 		static constexpr float SPEED = 6.0f;
-		static constexpr float PROJECTILE_SPEED = 6.0f;
 		float deadTime = 0.0f;
-		PlayerState state = PlayerState::Alive;
-		std::optional<Projectile> projectile;	
 };
